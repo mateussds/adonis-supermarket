@@ -1,0 +1,5 @@
+Product (N) - (N) Discount_type
+Product (N) - (1) Product_line
+Product (N) - (1) Models
+Product (N) - (1) Brands
+Product (N) - (1) Product_categories
