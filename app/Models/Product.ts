@@ -4,7 +4,8 @@ import ProductLine from "./ProductLine";
 import Model from "./Model";
 import DiscountType from "./DiscountType";
 import ProductCategory from "./ProductCategory";
-import { DateTime } from "luxon/src/datetime";
+import { DateTime } from "luxon";
+
 
 export default class Product extends BaseModel{
   @column({ isPrimary: true })
@@ -17,13 +18,13 @@ export default class Product extends BaseModel{
   public supplyer: string;
 
   @column()
-  public its_perishable: string;
+  public itsPerishable: string;
 
   @column()
   public cost: number;
 
   @column()
-  public sale_price: number;
+  public salePrice: number;
 
   @column()
   public discount: number;
@@ -35,19 +36,19 @@ export default class Product extends BaseModel{
   public updatedAt: DateTime;
 
   @belongsTo(() => Brand, { foreignKey: 'brandId' })
-  public brand_id: BelongsTo<typeof Brand>;
+  public brandId: BelongsTo<typeof Brand>;
 
   @belongsTo(() => ProductLine, { foreignKey: 'productLineId' })
-  public product_line_id: BelongsTo<typeof ProductLine>;
+  public productLineId: BelongsTo<typeof ProductLine>;
 
   @belongsTo(() => Model, { foreignKey: 'modelId' })
-  public model_id: BelongsTo<typeof Model>;
+  public modelId: BelongsTo<typeof Model>;
 
   @belongsTo(() => DiscountType, { foreignKey: 'discountTypeId' })
-  public discount_type_id: BelongsTo<typeof Brand>;
+  public discountTypeId: BelongsTo<typeof DiscountType>;
 
   @belongsTo(() => ProductCategory, { foreignKey: 'productCategoryId' })
-  public product_category_id: BelongsTo<typeof Brand>;
+  public productCategoryId: BelongsTo<typeof ProductCategory>;
 
   
 }

@@ -8,18 +8,29 @@ export default class ProductsController {
         const{
             name,
             supplyer,
-            its_perishable,
+            itsPerishable,
             cost,
-            sale_price,
-            discount
+            salePrice,
+            discount,
+            brandId,
+            productLineId,
+            modelId,
+            discountTypeId,
+            productCategoryId
+
         } = request.body()
         const products = await Product.create({
             name,
             supplyer,
-            its_perishable,
+            itsPerishable,
             cost,
-            sale_price,
-            discount
+            salePrice,
+            discount,
+            brandId,
+            productLineId,
+            modelId,
+            discountTypeId,
+            productCategoryId,
         });
         return products;
     }
