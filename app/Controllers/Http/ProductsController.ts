@@ -1,10 +1,11 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
+
 import Product from "App/Models/Product"
 
 export default class ProductsController {
     
-    async store({request}){
+   async store({request}){
         const{
             name,
             supplyer,
@@ -34,4 +35,13 @@ export default class ProductsController {
         });
         return products;
     }
+
+    async show({params}){
+        const product = await Product.query().preload('brand').preload('discountType').preload('model').preload('productCategory'). preload('productLine').where('id', params.id);
+        return product;
+    }
+
+
+
+
 }

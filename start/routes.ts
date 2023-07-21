@@ -24,4 +24,5 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 Route.post('products', 'ProductsController.store');
+Route.get('products/:id', 'ProductsController.show');
 

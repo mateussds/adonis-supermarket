@@ -29,6 +29,21 @@ export default class Product extends BaseModel{
   @column()
   public discount: number;
 
+  @column()
+  public brandId: number;
+
+  @column()
+  public productLineId: number;
+
+  @column()
+  public modelId: number;
+
+  @column()
+  public discountTypeId: number;
+
+  @column()
+  public productCategoryId: number;
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime;
 
@@ -36,19 +51,19 @@ export default class Product extends BaseModel{
   public updatedAt: DateTime;
 
   @belongsTo(() => Brand, { foreignKey: 'brandId' })
-  public brandId: BelongsTo<typeof Brand>;
+  public brand: BelongsTo<typeof Brand>;
 
   @belongsTo(() => ProductLine, { foreignKey: 'productLineId' })
-  public productLineId: BelongsTo<typeof ProductLine>;
+  public productLine: BelongsTo<typeof ProductLine>;
 
   @belongsTo(() => Model, { foreignKey: 'modelId' })
-  public modelId: BelongsTo<typeof Model>;
+  public model: BelongsTo<typeof Model>;
 
   @belongsTo(() => DiscountType, { foreignKey: 'discountTypeId' })
-  public discountTypeId: BelongsTo<typeof DiscountType>;
+  public discountType: BelongsTo<typeof DiscountType>;
 
   @belongsTo(() => ProductCategory, { foreignKey: 'productCategoryId' })
-  public productCategoryId: BelongsTo<typeof ProductCategory>;
+  public productCategory: BelongsTo<typeof ProductCategory>;
 
   
 }
