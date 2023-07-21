@@ -1,7 +1,8 @@
+import Product from "App/Models/Product";
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 
-import Product from "App/Models/Product"
+
 
 export default class ProductsController {
     
@@ -37,8 +38,22 @@ export default class ProductsController {
     }
 
     async show({params}){
-        const product = await Product.query().preload('brand').preload('discountType').preload('model').preload('productCategory'). preload('productLine').where('id', params.id);
+        const product = await Product.query()
+                                    .preload('brand')
+                                    .preload('discountType')
+                                    .preload('model')
+                                    .preload('productCategory')
+                                    . preload('productLine')
+                                    .where('id', params.id);
         return product;
+    }
+
+    async index({}){
+        const product = await Product.query()
+                                    .from('products')
+                                    .select('*');
+
+        return product
     }
 
 
